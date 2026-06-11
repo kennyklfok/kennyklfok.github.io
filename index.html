@@ -1,217 +1,619 @@
-<!DOCTYPE HTML>
-<!--
-	Landed by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Landed by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload landing">
-		<div id="page-wrapper">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Kenny Fok - fullstack developer working across health tech and research."
+    />
+    <title>Kenny Fok</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Kenny Fok home">KF</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#stack">Stack</a>
+        <a href="#work">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+        <button
+          class="theme-toggle"
+          type="button"
+          aria-label="Toggle color theme"
+        >
+          Dark
+        </button>
+      </nav>
+    </header>
 
-			<!-- Header -->
-				<header id="header">
-					<h1 id="logo"><a href="index.html">Landed</a></h1>
-					<nav id="nav">
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li>
-								<a href="#">Layouts</a>
-								<ul>
-									<li><a href="left-sidebar.html">Left Sidebar</a></li>
-									<li><a href="right-sidebar.html">Right Sidebar</a></li>
-									<li><a href="no-sidebar.html">No Sidebar</a></li>
-									<li>
-										<a href="#">Submenu</a>
-										<ul>
-											<li><a href="#">Option 1</a></li>
-											<li><a href="#">Option 2</a></li>
-											<li><a href="#">Option 3</a></li>
-											<li><a href="#">Option 4</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-							<li><a href="elements.html">Elements</a></li>
-							<li><a href="#" class="button primary">Sign Up</a></li>
-						</ul>
-					</nav>
-				</header>
+    <main id="top">
+      <section class="hero" aria-labelledby="intro-title">
+        <p class="eyebrow">Fullstack Developer / Health Tech / Research</p>
+        <h1 id="intro-title">Hi, I'm Kenny.</h1>
+        <p class="hero-copy">
+          I build software for research-heavy and health-adjacent workflows,
+          from readable frontends to validation tooling that makes clinical and
+          experimental results easier to trust, compare, and explain.
+        </p>
+        <div class="hero-actions" aria-label="Intro links">
+          <a href="#work">Selected work</a>
+          <a href="https://www.linkedin.com/in/kennyfok/">LinkedIn</a>
+          <a href="https://github.com/kennyklfok">GitHub</a>
+        </div>
+      </section>
 
-			<!-- Banner -->
-				<section id="banner">
-					<div class="content">
-						<header>
-							<h2>The future has landed</h2>
-							<p>And there are no hoverboards or flying cars.<br />
-							Just apps. Lots of mother flipping apps.</p>
-						</header>
-						<span class="image"><img src="images/pic01.jpg" alt="" /></span>
-					</div>
-					<a href="#one" class="goto-next scrolly">Next</a>
-				</section>
+      <section class="section split" id="about" aria-labelledby="about-title">
+        <div>
+          <p class="section-kicker">About</p>
+          <h2 id="about-title">
+            I work where software, health data, and research questions overlap.
+          </h2>
+        </div>
+        <div class="section-body">
+          <p>
+            I care about building tools that feel calm on the surface and
+            rigorous underneath: interfaces that make sense, scripts that can be
+            rerun, and reports that help people see what changed.
+          </p>
+          <p>
+            Recently, my work has centered on ECG validation, AI-assisted
+            cardiac analysis, clinical software QA, responsive web systems, and
+            research workflows spanning fMRI, microscopy, and biomedical data.
+          </p>
+        </div>
+      </section>
 
-			<!-- One -->
-				<section id="one" class="spotlight style1 bottom">
-					<span class="image fit main"><img src="images/pic02.jpg" alt="" /></span>
-					<div class="content">
-						<div class="container">
-							<div class="row">
-								<div class="col-4 col-12-medium">
-									<header>
-										<h2>Odio faucibus ipsum integer consequat</h2>
-										<p>Nascetur eu nibh vestibulum amet gravida nascetur praesent</p>
-									</header>
-								</div>
-								<div class="col-4 col-12-medium">
-									<p>Feugiat accumsan lorem eu ac lorem amet sed accumsan donec.
-									Blandit orci porttitor semper. Arcu phasellus tortor enim mi
-									nisi praesent dolor adipiscing. Integer mi sed nascetur cep aliquet
-									augue varius tempus lobortis porttitor accumsan consequat
-									adipiscing lorem dolor.</p>
-								</div>
-								<div class="col-4 col-12-medium">
-									<p>Morbi enim nascetur et placerat lorem sed iaculis neque ante
-									adipiscing adipiscing metus massa. Blandit orci porttitor semper.
-									Arcu phasellus tortor enim mi mi nisi praesent adipiscing. Integer
-									mi sed nascetur cep aliquet augue varius tempus. Feugiat lorem
-									ipsum dolor nullam.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<a href="#two" class="goto-next scrolly">Next</a>
-				</section>
+      <section
+        class="section stack-section"
+        id="stack"
+        aria-labelledby="stack-title"
+      >
+        <div>
+          <p class="section-kicker">Stack</p>
+          <h2 id="stack-title">
+            Technologies and tools used in production and research.
+          </h2>
+        </div>
+        <div class="stack-grid" aria-label="Technical stack">
+          <section class="stack-column">
+            <h3>Frontend</h3>
+            <ul class="skill-list">
+              <li>
+                <i
+                  class="skill-icon fab fa-react tone-cyan"
+                  aria-hidden="true"
+                ></i
+                >React
+              </li>
+              <li>
+                <i
+                  class="skill-icon fab fa-js tone-yellow"
+                  aria-hidden="true"
+                ></i
+                >JavaScript
+              </li>
+              <li>
+                <i
+                  class="skill-icon fab fa-html5 tone-orange"
+                  aria-hidden="true"
+                ></i
+                >HTML
+              </li>
+              <li>
+                <i
+                  class="skill-icon fab fa-css3-alt tone-blue"
+                  aria-hidden="true"
+                ></i
+                >CSS
+              </li>
+              <li>
+                <i
+                  class="skill-icon fab fa-bootstrap tone-purple"
+                  aria-hidden="true"
+                ></i
+                >Bootstrap
+              </li>
+            </ul>
+          </section>
+          <section class="stack-column">
+            <h3>Backend & data</h3>
+            <ul class="skill-list">
+              <li>
+                <i
+                  class="skill-icon fab fa-node-js tone-green"
+                  aria-hidden="true"
+                ></i
+                >Node.js
+              </li>
+              <li>
+                <i
+                  class="skill-icon fab fa-python tone-blue"
+                  aria-hidden="true"
+                ></i
+                >Python
+              </li>
+              <li>
+                <i
+                  class="skill-icon fab fa-java tone-red"
+                  aria-hidden="true"
+                ></i
+                >Java
+              </li>
+              <li>
+                <i
+                  class="skill-icon fas fa-database tone-teal"
+                  aria-hidden="true"
+                ></i
+                >SQL
+              </li>
+              <li>
+                <i
+                  class="skill-icon fas fa-fire tone-yellow"
+                  aria-hidden="true"
+                ></i
+                >Firebase
+              </li>
+            </ul>
+          </section>
+          <section class="stack-column">
+            <h3>Research</h3>
+            <ul class="skill-list">
+              <li>
+                <i
+                  class="skill-icon fas fa-heartbeat tone-red"
+                  aria-hidden="true"
+                ></i
+                >ECG analysis
+              </li>
+              <li>
+                <i
+                  class="skill-icon fas fa-table tone-blue"
+                  aria-hidden="true"
+                ></i
+                >NumPy
+              </li>
+              <li>
+                <i
+                  class="skill-icon fas fa-brain tone-orange"
+                  aria-hidden="true"
+                ></i
+                >TensorFlow
+              </li>
+              <li>
+                <i
+                  class="skill-icon fas fa-eye tone-gray"
+                  aria-hidden="true"
+                ></i
+                >FSLeyes
+              </li>
+              <li>
+                <i
+                  class="skill-icon fas fa-check-circle tone-green"
+                  aria-hidden="true"
+                ></i
+                >Validation
+              </li>
+            </ul>
+          </section>
+          <section class="stack-column">
+            <h3>Tools</h3>
+            <ul class="skill-list">
+              <li>
+                <i
+                  class="skill-icon fab fa-git-alt tone-orange"
+                  aria-hidden="true"
+                ></i
+                >Git
+              </li>
+              <li>
+                <i
+                  class="skill-icon fab fa-github tone-gray"
+                  aria-hidden="true"
+                ></i
+                >GitHub
+              </li>
+              <li>
+                <i
+                  class="skill-icon fas fa-code tone-blue"
+                  aria-hidden="true"
+                ></i
+                >VS Code
+              </li>
+              <li>
+                <i
+                  class="skill-icon fas fa-terminal tone-gray"
+                  aria-hidden="true"
+                ></i
+                >WSL
+              </li>
+              <li>
+                <i
+                  class="skill-icon fab fa-figma tone-purple"
+                  aria-hidden="true"
+                ></i
+                >Figma
+              </li>
+            </ul>
+          </section>
+        </div>
+      </section>
 
-			<!-- Two -->
-				<section id="two" class="spotlight style2 right">
-					<span class="image fit main"><img src="images/pic03.jpg" alt="" /></span>
-					<div class="content">
-						<header>
-							<h2>Interdum amet non magna accumsan</h2>
-							<p>Nunc commodo accumsan eget id nisi eu col volutpat magna</p>
-						</header>
-						<p>Feugiat accumsan lorem eu ac lorem amet ac arcu phasellus tortor enim mi mi nisi praesent adipiscing. Integer mi sed nascetur cep aliquet augue varius tempus lobortis porttitor lorem et accumsan consequat adipiscing lorem.</p>
-						<ul class="actions">
-							<li><a href="#" class="button">Learn More</a></li>
-						</ul>
-					</div>
-					<a href="#three" class="goto-next scrolly">Next</a>
-				</section>
+      <section class="section" id="work" aria-labelledby="work-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Projects</p>
+            <h2 id="work-title">Selected work</h2>
+          </div>
+          <a class="text-link" href="https://github.com/kennyklfok"
+            >More on GitHub</a
+          >
+        </div>
+        <div class="project-list">
+          <article class="project">
+            <div class="project-link">
+              <span class="project-number">01</span>
+              <div class="project-content">
+                <div>
+                  <h3>code expl.AI.ner</h3>
+                  <p>
+                    VS Code extension and fullstack AI developer tool that
+                    explains selected code through a custom webview and
+                    Node/Express backend, with request validation, timeout
+                    handling, and rate limiting.
+                  </p>
+                </div>
+                <ul class="tags" aria-label="Technologies">
+                  <li>Node.js</li>
+                  <li>Express</li>
+                  <li>Groq API</li>
+                </ul>
+                <div class="project-links">
+                  <a href="https://github.com/kennyklfok/hackthebreak2026"
+                    >GitHub</a
+                  >
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="project">
+            <div class="project-link">
+              <span class="project-number">02</span>
+              <div class="project-content">
+                <div>
+                  <h3>Burnaby Hospital Diagnostic Cardiology</h3>
+                  <p>
+                    Responsive multi-page clinical department website built with
+                    a modular frontend architecture, Vite-optimized assets, and
+                    Firebase hosting for production delivery.
+                  </p>
+                </div>
+                <ul class="tags" aria-label="Technologies">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>Firebase</li>
+                </ul>
+                <div class="project-links">
+                  <a href="https://bh-card-website.web.app/">Live site</a>
+                  <a href="https://github.com/kennyklfok/BH-CARD-Website"
+                    >GitHub</a
+                  >
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="project">
+            <div class="project-link">
+              <span class="project-number">03</span>
+              <div class="project-content">
+                <div>
+                  <h3>SureSpot</h3>
+                  <p>
+                    Real-time parking availability tracker with Firebase auth,
+                    Firestore data, geocoding, interactive map visualization,
+                    and Agile team collaboration.
+                  </p>
+                </div>
+                <ul class="tags" aria-label="Technologies">
+                  <li>JavaScript</li>
+                  <li>Firestore</li>
+                  <li>MapTiler</li>
+                </ul>
+                <div class="project-links">
+                  <a href="https://github.com/kennyklfok/SureSpot">GitHub</a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
 
-			<!-- Three -->
-				<section id="three" class="spotlight style3 left">
-					<span class="image fit main bottom"><img src="images/pic04.jpg" alt="" /></span>
-					<div class="content">
-						<header>
-							<h2>Interdum felis blandit praesent sed augue</h2>
-							<p>Accumsan integer ultricies aliquam vel massa sapien phasellus</p>
-						</header>
-						<p>Feugiat accumsan lorem eu ac lorem amet ac arcu phasellus tortor enim mi mi nisi praesent adipiscing. Integer mi sed nascetur cep aliquet augue varius tempus lobortis porttitor lorem et accumsan consequat adipiscing lorem.</p>
-						<ul class="actions">
-							<li><a href="#" class="button">Learn More</a></li>
-						</ul>
-					</div>
-					<a href="#four" class="goto-next scrolly">Next</a>
-				</section>
+      <section
+        class="section publication"
+        id="publications"
+        aria-labelledby="publication-title"
+      >
+        <p class="section-kicker">Publications</p>
+        <article class="publication-card">
+          <h2 id="publication-title">
+            Deletion of carboxypeptidase E in beta cells disrupts proinsulin
+            processing but does not lead to spontaneous development of diabetes
+            in mice
+          </h2>
+          <p class="publication-authors">
+            Chen, Y. C., et al., Fok, K., et al. Diabetes, 2023.
+          </p>
+          <p>
+            Carboxypeptidase E (CPE) facilitates the conversion of prohormones
+            into mature hormones and is highly expressed in multiple
+            neuroendocrine tissues. Carriers of CPE mutations have elevated
+            plasma proinsulin and develop severe obesity and hyperglycemia. We
+            aimed to determine whether loss of Cpe in pancreatic β-cells
+            disrupts proinsulin processing and accelerates development of
+            diabetes and obesity in mice. Pancreatic β-cell-specific Cpe
+            knockout mice (βCpeKO; Cpefl/fl x Ins1Cre/+) lack mature insulin
+            granules and have elevated proinsulin in plasma; however,
+            glucose-and KCl-stimulated insulin secretion in βCpeKO islets
+            remained intact. High-fat diet-fed βCpeKO mice showed weight gain
+            and glucose tolerance comparable with those of Wt littermates.
+            Notably, β-cell area was increased in chow-fed βCpeKO mice and
+            β-cell replication was elevated in βCpeKO islets. Transcriptomic
+            analysis of βCpeKO β-cells revealed elevated glycolysis and
+            Hif1α-target gene expression. On high glucose challenge, β-cells
+            from βCpeKO mice showed reduced mitochondrial membrane potential,
+            increased reactive oxygen species, reduced MafA, and elevated
+            Aldh1a3 transcript levels. Following multiple low-dose
+            streptozotocin injections, βCpeKO mice had accelerated development
+            of hyperglycemia with reduced β-cell insulin and Glut2 expression.
+            These findings suggest that Cpe and proper proinsulin processing are
+            critical in maintaining β-cell function during the development of
+            hyperglycemia.
+          </p>
+          <p class="publication-meta">
+            DOI: 10.2337/db22-0945 / PMID: 37364047
+          </p>
+          <div class="publication-links">
+            <a href="https://doi.org/10.2337/db22-0945">DOI</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/37364047/">PubMed</a>
+            <a
+              href="https://diabetesjournals.org/diabetes/article/72/9/1277/153340/Deletion-of-Carboxypeptidase-E-in-Cells-Disrupts"
+              >Article</a
+            >
+          </div>
+        </article>
+      </section>
 
-			<!-- Four -->
-				<section id="four" class="wrapper style1 special fade-up">
-					<div class="container">
-						<header class="major">
-							<h2>Accumsan sed tempus adipiscing blandit</h2>
-							<p>Iaculis ac volutpat vis non enim gravida nisi faucibus posuere arcu consequat</p>
-						</header>
-						<div class="box alt">
-							<div class="row gtr-uniform">
-								<section class="col-4 col-6-medium col-12-xsmall">
-									<span class="icon solid alt major fa-chart-area"></span>
-									<h3>Ipsum sed commodo</h3>
-									<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
-								</section>
-								<section class="col-4 col-6-medium col-12-xsmall">
-									<span class="icon solid alt major fa-comment"></span>
-									<h3>Eleifend lorem ornare</h3>
-									<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
-								</section>
-								<section class="col-4 col-6-medium col-12-xsmall">
-									<span class="icon solid alt major fa-flask"></span>
-									<h3>Cubilia cep lobortis</h3>
-									<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
-								</section>
-								<section class="col-4 col-6-medium col-12-xsmall">
-									<span class="icon solid alt major fa-paper-plane"></span>
-									<h3>Non semper interdum</h3>
-									<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
-								</section>
-								<section class="col-4 col-6-medium col-12-xsmall">
-									<span class="icon solid alt major fa-file"></span>
-									<h3>Odio laoreet accumsan</h3>
-									<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
-								</section>
-								<section class="col-4 col-6-medium col-12-xsmall">
-									<span class="icon solid alt major fa-lock"></span>
-									<h3>Massa arcu accumsan</h3>
-									<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
-								</section>
-							</div>
-						</div>
-						<footer class="major">
-							<ul class="actions special">
-								<li><a href="#" class="button">Magna sed feugiat</a></li>
-							</ul>
-						</footer>
-					</div>
-				</section>
+      <section
+        class="section timeline"
+        id="experience"
+        aria-labelledby="experience-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Experience</p>
+            <h2 id="experience-title">
+              Roles across software, clinical systems, and research.
+            </h2>
+          </div>
+        </div>
+        <ol>
+          <li>
+            <span>Feb 2026 - Present</span>
+            <div>
+              <h3>Algorithm Validation Intern / Neural Cloud Solutions</h3>
+              <p>
+                Developing ECG validation workflows for machine learning
+                pipelines and algorithm testing.
+              </p>
+              <ul class="detail-list">
+                <li>
+                  Built and maintained Python scripts for ECG annotation
+                  processing, dataset preparation, and validation automation.
+                </li>
+                <li>
+                  Tested arrhythmia classification against labelled ECG
+                  datasets, documenting errors involving PVCs, PACs, AFib, AV
+                  block, and junctional rhythms.
+                </li>
+                <li>
+                  Collaborated with clinical and technical leadership to
+                  prioritize validation objectives and improve testing
+                  workflows.
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <span>Feb 2026 - Apr 2026</span>
+            <div>
+              <h3>Clinical Software Consultant / Neural Cloud Solutions</h3>
+              <p>
+                Clinical QA and product feedback for AI-driven cardiac analysis
+                platforms.
+              </p>
+              <ul class="detail-list">
+                <li>
+                  Produced bug reports and technical recommendations across
+                  frontend, backend, and workflow systems.
+                </li>
+                <li>
+                  Labeled and validated 500+ cardiac waveform segments for
+                  supervised machine learning and annotation standardization.
+                </li>
+                <li>
+                  Worked with product, engineering, and clinical teams to align
+                  software behavior with ECG validation goals.
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <span>Feb 2023 - Present</span>
+            <div>
+              <h3>Cardiology Technologist / Fraser Health</h3>
+              <p>
+                Clinical cardiac testing and documentation across Burnaby
+                Hospital and Royal Columbian Hospital.
+              </p>
+              <ul class="detail-list">
+                <li>
+                  Conducted ECGs, Holter monitoring, and stress testing using
+                  cardiac diagnostic equipment.
+                </li>
+                <li>
+                  Performed rhythm scanning and analysis with CardioDay and
+                  Zymed.
+                </li>
+                <li>
+                  Used Meditech and Muse for patient registration, clinical
+                  documentation, and order management.
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <span>May 2019 - Aug 2019</span>
+            <div>
+              <h3>
+                Research Assistant, Grunau Lab / BC Children's Hospital Research
+                Institute
+              </h3>
+              <p>
+                Neonatal and fMRI research support in a multidisciplinary
+                clinical research environment.
+              </p>
+              <ul class="detail-list">
+                <li>
+                  Preprocessed 50 fMRI datasets using FSLeyes to distinguish
+                  signal from noise with high interrater reliability.
+                </li>
+                <li>
+                  Led literature review writing for future peer-reviewed
+                  manuscripts.
+                </li>
+                <li>
+                  Supported participant recruitment for studies in the neonatal
+                  ICU.
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <span>Sep 2018 - Apr 2019</span>
+            <div>
+              <h3>
+                Research Assistant, Verchere Lab / BC Children's Hospital
+                Research Institute
+              </h3>
+              <p>
+                Diabetes and beta-cell research support through microscopy,
+                imaging, and structured data validation.
+              </p>
+              <ul class="detail-list">
+                <li>
+                  Performed quantitative data analysis on roughly 500 biological
+                  samples using imaging and microscopy techniques.
+                </li>
+                <li>
+                  Applied structured experimental protocols and validation
+                  processes for biological data.
+                </li>
+                <li>
+                  Generated experimental data that contributed to a
+                  peer-reviewed publication.
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <span>Apr 2017 - Apr 2018</span>
+            <div>
+              <h3>Research Assistant / UBC Peer Relations in Childhood Lab</h3>
+              <p>
+                Behavioral research coding, reliability checks, and data
+                organization for child interaction studies.
+              </p>
+              <ul class="detail-list">
+                <li>
+                  Analyzed and coded approximately 125 French and English videos
+                  of children with ADHD using a structured manual.
+                </li>
+                <li>
+                  Compiled charts and reviewed data for consistency,
+                  reliability, and integrity.
+                </li>
+                <li>
+                  Presented research findings in weekly team meetings to improve
+                  interrater reliability.
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+        <div class="education-block">
+          <p class="section-kicker">Education</p>
+          <div class="education-grid">
+            <article>
+              <span>Sep 2025 - Present</span>
+              <h3>Computer Systems Technology Diploma / BCIT</h3>
+            </article>
+            <article>
+              <span>Dec 2023</span>
+              <h3>Cardiology Technology Diploma / BCIT</h3>
+              <p>With Distinction</p>
+            </article>
+            <article>
+              <span>Apr 2020</span>
+              <h3>Bachelor of Science / University of British Columbia</h3>
+              <p>Dean's List</p>
+            </article>
+          </div>
+        </div>
+      </section>
 
-			<!-- Five -->
-				<section id="five" class="wrapper style2 special fade">
-					<div class="container">
-						<header>
-							<h2>Magna faucibus lorem diam</h2>
-							<p>Ante metus praesent faucibus ante integer id accumsan eleifend</p>
-						</header>
-						<form method="post" action="#" class="cta">
-							<div class="row gtr-uniform gtr-50">
-								<div class="col-8 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Your Email Address" /></div>
-								<div class="col-4 col-12-xsmall"><input type="submit" value="Get Started" class="fit primary" /></div>
-							</div>
-						</form>
-					</div>
-				</section>
+      <section
+        class="section contact"
+        id="contact"
+        aria-labelledby="contact-title"
+      >
+        <p class="section-kicker">Contact</p>
+        <h2 id="contact-title">Have something worth building?</h2>
+        <p>
+          I am interested in fullstack projects, health tech, research tooling,
+          and anything that benefits from careful software around complex data.
+        </p>
+        <div class="contact-links">
+          <a href="https://www.linkedin.com/in/kennyfok/">LinkedIn</a>
+          <a href="https://github.com/kennyklfok">GitHub</a>
+        </div>
+      </section>
+    </main>
 
-			<!-- Footer -->
-				<footer id="footer">
-					<ul class="icons">
-						<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-						<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-						<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-				</footer>
+    <footer class="site-footer">
+      <p>Made by Kenny Fok.</p>
+      <a href="#top">Back to top</a>
+    </footer>
 
-		</div>
+    <script>
+      const toggle = document.querySelector(".theme-toggle");
+      const savedTheme = localStorage.getItem("theme");
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+      if (savedTheme === "dark") {
+        document.documentElement.dataset.theme = "dark";
+        toggle.textContent = "Dark";
+      } else {
+        toggle.textContent = "Light";
+      }
 
-	</body>
+      toggle.addEventListener("click", () => {
+        const isDark = document.documentElement.dataset.theme === "dark";
+        document.documentElement.dataset.theme = isDark ? "light" : "dark";
+        localStorage.setItem("theme", isDark ? "light" : "dark");
+        toggle.textContent = isDark ? "Light" : "Dark";
+      });
+    </script>
+  </body>
 </html>
