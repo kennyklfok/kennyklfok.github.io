@@ -61,7 +61,6 @@ http://localhost:8000
 |   +-- css/
 |   +-- js/
 |   +-- webfonts/
-+-- images/
 +-- README.md
 ```
 
