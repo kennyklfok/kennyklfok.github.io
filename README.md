@@ -59,8 +59,6 @@ http://localhost:8000
 +-- index.html
 +-- assets/
 |   +-- css/
-|   +-- js/
-|   +-- webfonts/
 +-- README.md
 ```
 
