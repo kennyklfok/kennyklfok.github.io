@@ -203,8 +203,7 @@ main,
 	margin-top: 34px;
 }
 
-.hero-actions a:first-child,
-.contact-links a:first-child {
+.hero-actions a:first-child{
 	background: var(--text);
 	color: var(--bg);
 }
