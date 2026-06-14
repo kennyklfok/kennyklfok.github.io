@@ -9,6 +9,7 @@
 	--line: rgba(21, 21, 21, 0.13);
 	--accent: #1f6b3e;
 	--accent-ink: #ffffff;
+	--surface-glow: rgba(31, 107, 62, 0.08);
 	--shadow: 0 18px 55px rgba(30, 24, 14, 0.08);
 	color-scheme: light;
 }
@@ -22,6 +23,7 @@
 	--line: rgba(243, 240, 232, 0.13);
 	--accent: #c9f6d4;
 	--accent-ink: #102017;
+	--surface-glow: rgba(201, 246, 212, 0.08);
 	--shadow: 0 18px 70px rgba(0, 0, 0, 0.2);
 	color-scheme: dark;
 }
@@ -37,10 +39,12 @@ html {
 body {
 	margin: 0;
 	background:
-		linear-gradient(90deg, rgba(243, 240, 232, 0.035) 1px, transparent 1px),
-		radial-gradient(circle at 74% 0%, rgba(201, 246, 212, 0.12), transparent 34rem),
+		linear-gradient(90deg, color-mix(in srgb, var(--line) 24%, transparent) 1px, transparent 1px),
+		linear-gradient(180deg, color-mix(in srgb, var(--line) 16%, transparent) 1px, transparent 1px),
+		radial-gradient(circle at 74% 0%, var(--surface-glow), transparent 34rem),
+		radial-gradient(circle at 10% 92%, color-mix(in srgb, var(--accent) 5%, transparent), transparent 28rem),
 		var(--bg);
-	background-size: 56px 56px, auto, auto;
+	background-size: 64px 64px, 64px 64px, auto, auto, auto;
 	color: var(--text);
 	font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 	font-size: 16px;
@@ -100,11 +104,11 @@ main,
 	max-width: none;
 	margin: 0;
 	padding: 16px max(20px, calc((100% - 1040px) / 2));
-	background: color-mix(in srgb, var(--bg) 62%, transparent);
+	background: color-mix(in srgb, var(--bg) 72%, transparent);
 	backdrop-filter: blur(28px) saturate(1.25);
 	-webkit-backdrop-filter: blur(28px) saturate(1.25);
 	border-bottom: 1px solid color-mix(in srgb, var(--line) 62%, transparent);
-	box-shadow: 0 18px 44px rgba(0, 0, 0, 0.16);
+	box-shadow: 0 18px 44px rgba(0, 0, 0, 0.1);
 }
 
 .site-header::after {
@@ -125,8 +129,9 @@ main,
 	width: 42px;
 	height: 42px;
 	border: 1px solid var(--line);
-	border-radius: 10px;
+	border-radius: 12px;
 	background: color-mix(in srgb, var(--panel) 88%, transparent);
+	color: var(--accent);
 	font-weight: 700;
 	letter-spacing: 0.02em;
 	box-shadow: var(--shadow);
@@ -168,10 +173,10 @@ main,
 }
 
 .hero {
-	min-height: 76vh;
+	min-height: 74vh;
 	display: grid;
 	align-content: center;
-	padding: 88px 0 72px;
+	padding: 86px 0 76px;
 }
 
 .eyebrow,
@@ -198,7 +203,7 @@ main,
 	margin-top: 28px;
 	color: var(--muted);
 	font-size: clamp(1.04rem, 1.6vw, 1.28rem);
-	line-height: 1.62;
+	line-height: 1.58;
 }
 
 .hero-actions,
@@ -222,7 +227,7 @@ main,
 
 .section {
 	border-top: 1px solid var(--line);
-	padding: 92px 0;
+	padding: 84px 0;
 	scroll-margin-top: 90px;
 }
 
@@ -287,22 +292,30 @@ main,
 .project-list {
 	display: grid;
 	border-top: 1px solid var(--line);
+	gap: 1px;
 }
 
 .project {
 	border-bottom: 1px solid var(--line);
+	transition: background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.project:last-child {
+	border-bottom: 0;
 }
 
 .project-link {
 	display: grid;
 	grid-template-columns: 70px 1fr;
 	gap: 28px;
-	padding: 30px 0;
-	transition: color 160ms ease, transform 160ms ease;
+	padding: 28px 18px;
+	border-radius: 8px;
+	transition: color 160ms ease, transform 160ms ease, background-color 160ms ease;
 }
 
 .project-link:hover {
 	transform: translateX(5px);
+	background: color-mix(in srgb, var(--panel) 46%, transparent);
 }
 
 .project-content {
@@ -349,6 +362,10 @@ main,
 	line-height: 1.2;
 }
 
+.project h3 {
+	font-size: 1.08rem;
+}
+
 .project p,
 .stack-grid p,
 .timeline p,
@@ -375,13 +392,18 @@ main,
 	color: var(--muted);
 	font-size: 0.78rem;
 	white-space: nowrap;
+	background: color-mix(in srgb, var(--panel) 36%, transparent);
 }
 
 .stack-grid {
 	display: grid;
 	grid-template-columns: repeat(4, minmax(0, 1fr));
 	gap: 38px;
-	margin-top: 52px;
+	margin-top: 46px;
+}
+
+.stack-column {
+	padding: 2px 0;
 }
 
 .stack-column h3 {
@@ -462,28 +484,28 @@ main,
 
 .timeline ol {
 	display: grid;
-	gap: 1px;
+	gap: 0;
 	margin: 0;
 	padding: 0;
 	list-style: none;
 	border: 1px solid var(--line);
 	border-radius: 8px;
 	overflow: hidden;
+	box-shadow: var(--shadow);
 }
 
 .publication-card {
 	max-width: 920px;
 	margin-top: 24px;
-	padding: 30px 0;
-	border-bottom: 1px solid var(--line);
+	padding: 28px 0 0;
 }
 
 .publication-card h2 {
 	max-width: 840px;
 	font-family: "Playfair Display", Georgia, serif;
-	font-size: clamp(1.45rem, 2.1vw, 2rem);
+	font-size: clamp(1.45rem, 1.9vw, 1.9rem);
 	font-weight: 600;
-	line-height: 1.2;
+	line-height: 1.18;
 }
 
 .publication-authors {
@@ -525,8 +547,18 @@ main,
 	display: grid;
 	grid-template-columns: 210px 1fr;
 	gap: 28px;
-	padding: 24px 28px;
+	padding: 26px 28px;
 	background: color-mix(in srgb, var(--panel-soft) 86%, transparent);
+	border-bottom: 1px solid var(--line);
+	transition: background-color 160ms ease;
+}
+
+.timeline ol > li:last-child {
+	border-bottom: 0;
+}
+
+.timeline ol > li:hover {
+	background: color-mix(in srgb, var(--panel-soft) 64%, var(--panel));
 }
 
 .timeline span {
@@ -566,6 +598,7 @@ main,
 	border: 1px solid var(--line);
 	border-radius: 8px;
 	overflow: hidden;
+	box-shadow: var(--shadow);
 }
 
 .education-grid article {
@@ -594,6 +627,10 @@ main,
 
 .contact {
 	padding-bottom: 120px;
+}
+
+.contact h2 {
+	max-width: 760px;
 }
 
 .site-footer {
