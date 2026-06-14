@@ -257,6 +257,13 @@ main,
 	max-width: 760px;
 }
 
+.section-subtitle {
+	max-width: 760px;
+	margin-top: 12px;
+	color: var(--muted);
+	font-size: 1rem;
+}
+
 .section-heading {
 	display: flex;
 	align-items: end;
