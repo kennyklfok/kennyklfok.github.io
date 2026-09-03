@@ -64,4 +64,4 @@ http://localhost:8000
 
 ## Notes
 
-The site defaults to light mode and includes a dark-mode toggle that stores the selected theme in `localStorage`.
+The site defaults to dark mode and includes a color theme toggle that stores the selected theme in `localStorage`.

@@ -84,6 +84,10 @@
     const byId = new Map(
       navLinks.map((a) => [a.getAttribute("href").slice(1), a])
     );
+    const setActive = (link) => {
+      navLinks.forEach((a) => a.classList.remove("active"));
+      link.classList.add("active");
+    };
     const sections = Array.from(byId.keys())
       .map((id) => document.getElementById(id))
       .filter(Boolean);
@@ -94,8 +98,7 @@
           const link = byId.get(entry.target.id);
           if (!link) return;
           if (entry.isIntersecting) {
-            navLinks.forEach((a) => a.classList.remove("active"));
-            link.classList.add("active");
+            setActive(link);
           }
         });
       },
@@ -103,9 +106,32 @@
       // which section is "current".
       { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
     );
-
     sections.forEach((s) => navObserver.observe(s));
+
+    const contactLink = byId.get("contact");
+    let activeBeforeBottom = null;
+    const updateBottomNav = () => {
+      const atBottom =
+        window.scrollY + window.innerHeight >=
+        document.documentElement.scrollHeight - 1;
+
+      if (atBottom && contactLink) {
+        if (!activeBeforeBottom && !contactLink.classList.contains("active")) {
+          activeBeforeBottom =
+            navLinks.find((link) => link.classList.contains("active")) || null;
+        }
+        setActive(contactLink);
+      } else if (!atBottom && activeBeforeBottom) {
+        setActive(activeBeforeBottom);
+        activeBeforeBottom = null;
+      }
+    };
+
+    window.addEventListener("scroll", updateBottomNav, { passive: true });
+    window.addEventListener("resize", updateBottomNav);
+    updateBottomNav();
   }
+
 
   /* ---------------- Experience timeline: scroll-drawn rail ---------------- */
   const flow = document.querySelector(".timeline-flow");

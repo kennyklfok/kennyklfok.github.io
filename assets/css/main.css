@@ -231,7 +231,6 @@ main,
 }
 
 .hero-copy {
-	max-width: 640px;
 	margin-top: 26px;
 	color: var(--muted);
 	font-size: clamp(1.02rem, 1.5vw, 1.2rem);
@@ -286,7 +285,7 @@ main,
 /* ---------- 5. Sections & diagnostic labels ---------- */
 
 .section {
-	padding: 88px 0;
+	padding: 44px 0;
 	scroll-margin-top: 90px;
 }
 
@@ -332,6 +331,15 @@ main,
 	gap: 22px;
 	color: var(--muted);
 	font-size: 1.02rem;
+}
+
+.section-body p {
+	max-width: 720px;
+	font-size: clamp(1.02rem, 1.5vw, 1.2rem);
+	color: var(--text);
+	font-weight: 250;
+	line-height: 1.7;
+	letter-spacing: -0.01em;
 }
 
 .section-heading {
@@ -537,7 +545,7 @@ main,
 
 .publication-card h3 {
 	max-width: 840px;
-	font-size: clamp(1.25rem, 1.8vw, 1.6rem);
+	font-size: clamp(1rem, 1.4vw, 1.25rem);
 	font-weight: 700;
 	line-height: 1.25;
 	letter-spacing: -0.015em;
@@ -767,23 +775,55 @@ main,
 }
 
 .site-footer a {
+	display: inline-flex;
+	align-items: center;
+	border: 1px solid var(--line);
+	border-radius: 999px;
+	padding: 8px 13px;
 	color: var(--text);
+	transition: background-color 160ms ease, border-color 160ms ease,
+		color 160ms ease, transform 160ms ease;
+}
+
+.site-footer a:hover {
+	border-color: var(--accent);
+	background: color-mix(in srgb, var(--panel) 82%, transparent);
+	transform: translateY(-1px);
 }
 
 .egg-btn {
+	display: inline-flex;
+	align-items: center;
 	margin-left: 10px;
 	border: 0;
 	padding: 0;
 	background: none;
-	color: color-mix(in srgb, var(--muted) 55%, transparent);
+	color: var(--accent);
 	font-family: var(--mono);
 	font-size: 0.78rem;
 	cursor: pointer;
 	transition: color 160ms ease;
 }
 
+.egg-btn::before {
+	content: "";
+	display: inline-block;
+	width: 7px;
+	height: 7px;
+	margin-right: 9px;
+	border-radius: 50%;
+	background: var(--accent);
+	box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 65%, transparent);
+	animation: status-blink 1.8s ease-in-out infinite;
+}
+
 .egg-btn:hover {
 	color: var(--accent);
+}
+
+@keyframes status-blink {
+	0%, 100% { opacity: 1; }
+	50% { opacity: 0.35; }
 }
 
 /* ---------- 11. Motion ---------- */
@@ -952,7 +992,7 @@ html.motion .reveal.is-visible {
 	}
 
 	.section {
-		padding: 66px 0;
+		padding: 33px 0;
 	}
 
 	.project-card,
@@ -1139,7 +1179,7 @@ main,
 }
 
 .section {
-	padding: 72px 0;
+	padding: 36px 0;
 	scroll-margin-top: 100px;
 }
 .hero + .section,
@@ -1240,13 +1280,17 @@ main,
 	margin-top: 52px;
 	padding: 42px;
 	border-radius: 14px;
-	background: color-mix(in srgb, var(--panel) 78%, transparent);
+	background: color-mix(in srgb, var(--panel) 40%, transparent);
+	box-shadow: none;
+	transition: box-shadow 180ms ease;
+}
+.publication-card:hover {
 	box-shadow: var(--shadow);
 }
 .publication-card h3 {
 	max-width: 900px;
 	font-family: Manrope, Inter, sans-serif;
-	font-size: clamp(1.55rem, 3vw, 2.55rem);
+	font-size: clamp(1.2rem, 2.1vw, 1.85rem);
 	font-weight: 600;
 	line-height: 1.2;
 	letter-spacing: -0.035em;
@@ -1290,7 +1334,7 @@ main,
 	.hero { min-height: auto; padding: 96px 0 48px; }
 	.hero h1 { font-size: clamp(3.8rem, 18vw, 5.6rem); }
 	.hero-ecg { top: 0; left: 0; right: 0; width: 100%; }
-	.section { padding: 58px 0; }
+	.section { padding: 29px 0; }
 	.stack-grid { grid-template-columns: 1fr; }
 	.project-card {
 		grid-template-columns: 1fr;
@@ -1307,4 +1351,5 @@ main,
 
 @media (prefers-reduced-motion: reduce) {
 	.hero-ecg .ecg-trace { animation: none; }
+	.egg-btn::before { animation: none; }
 }
