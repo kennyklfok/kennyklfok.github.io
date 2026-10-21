@@ -1,0 +1,190 @@
+@font-face {
+  font-family: "Source Code Pro";
+  src: url('./fonts/Source_Code_Pro/SourceCodePro-VariableFont_wght.ttf');
+}
+
+body {
+  background-color: lavender;
+  font-family: "Source Code Pro", monospace, "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  letter-spacing: 1px;
+  color: #000;
+  margin: 0;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  font-style: oblique;
+  color: plum;
+  font-family:  Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-align: center;
+  letter-spacing: 10px;
+}
+
+
+textarea {
+  width: 100%;
+  min-height: 300px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-family:  "Source Code Pro", monospace;
+  letter-spacing: 2px;
+  font-size: 14px;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+#codeinput {
+  min-height: 180px;
+  background-color: #f7f3ff;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: min(920px, 100%);
+  margin: 0 auto;
+}
+
+.explaining {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+
+.explaining input,
+select {
+  border-radius: 6px;
+}
+
+/* Buttons */
+
+#explainbutton,
+#eli5button,
+#copybutton,
+#explainfilebutton {
+  font-family: "Source Code Pro", monospace, "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  letter-spacing: 6px;
+  background-color: #cbc3e3;
+  border-radius: 15px;
+  align-self: center;
+  padding: 6px 30px;
+  min-width: 380px;
+}
+
+#explainbutton:hover,
+#eli5button:hover,
+#copybutton:hover,
+#explainfilebutton:hover {
+  background-color: #aa98a9;
+}
+
+
+
+/* Text Boxes */
+
+#output {
+  min-height: 500px;
+  border-radius: 15px;
+}
+
+#codeinput {
+  min-height: 280px;
+  border-radius: 15px;
+}
+
+#length,
+#range-start,
+#range-end {
+  font-family: "Source Code Pro", monospace;
+  letter-spacing: 1px;
+
+}
+
+/* -------------------------- */
+/* Sliding Toggle Switch */
+/* -------------------------- */
+
+.theme-switch {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.switch {
+  display: inline-block;
+  width: 46px;
+  height: 24px;
+  background: #cbc3e3;
+  border-radius: 24px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.switch::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: white;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+/* when toggled */
+
+#theme-toggle:checked + .switch {
+  background: #5c4a72;
+}
+
+#theme-toggle:checked + .switch::after {
+  transform: translateX(22px);
+}
+
+/* -------------------------- */
+/* Dark Mode Styles */
+/* -------------------------- */
+
+body.dark {
+  background-color: #121018;
+  color: #43cdff;
+}
+
+body.dark h1 {
+  color: #68b4c2;
+}
+
+body.dark textarea {
+  background-color: #1b1824;
+  color: #6f8fcf;
+  border: 1px solid #2a2435;
+}
+
+body.dark #codeinput {
+  background-color: #1f1b2b;
+}
+
+body.dark #explainbutton,
+body.dark #eli5button,
+body.dark #copybutton,
+body.dark #explainfilebutton {
+  background-color: #3b3348;
+  color: #71b6de;
+  border: 1px solid #3b3348;
+}
+
+body.dark #explainbutton:hover,
+body.dark #eli5button:hover,
+body.dark #copybutton:hover,
+body.dark #explainfilebutton:hover {
+  background-color: #3a2f4a;
+}

@@ -20,7 +20,7 @@
       document.documentElement.dataset.theme =
         localStorage.getItem("theme") || "dark";
     </script>
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/main.css?v=7" />
   </head>
   <body id="top">
     <svg class="icon-sprite" aria-hidden="true" focusable="false">
@@ -179,43 +179,53 @@
         </div>
         <div class="stack-grid" aria-label="Technical stack">
           <section class="stack-column reveal">
-            <h3>Frontend</h3>
+            <h3>Languages</h3>
             <ul class="skill-list">
-              <li><svg class="skill-icon tone-cyan" aria-hidden="true"><use href="#icon-react"></use></svg>React</li>
-              <li><svg class="skill-icon tone-yellow" aria-hidden="true"><use href="#icon-code"></use></svg>JavaScript</li>
-              <li><svg class="skill-icon tone-orange" aria-hidden="true"><use href="#icon-html"></use></svg>HTML</li>
-              <li><svg class="skill-icon tone-blue" aria-hidden="true"><use href="#icon-css"></use></svg>CSS</li>
-              <li><svg class="skill-icon tone-purple" aria-hidden="true"><use href="#icon-grid"></use></svg>Bootstrap</li>
-            </ul>
-          </section>
-          <section class="stack-column reveal">
-            <h3>Backend & data</h3>
-            <ul class="skill-list">
-              <li><svg class="skill-icon tone-green" aria-hidden="true"><use href="#icon-server"></use></svg>Node.js</li>
               <li><svg class="skill-icon tone-blue" aria-hidden="true"><use href="#icon-python"></use></svg>Python</li>
               <li><svg class="skill-icon tone-red" aria-hidden="true"><use href="#icon-cup"></use></svg>Java</li>
+              <li><svg class="skill-icon tone-yellow" aria-hidden="true"><use href="#icon-code"></use></svg>JavaScript</li>
+              <li><svg class="skill-icon tone-blue" aria-hidden="true"><use href="#icon-code"></use></svg>TypeScript</li>
               <li><svg class="skill-icon tone-teal" aria-hidden="true"><use href="#icon-database"></use></svg>SQL</li>
-              <li><svg class="skill-icon tone-yellow" aria-hidden="true"><use href="#icon-flame"></use></svg>Firebase</li>
+              <li><svg class="skill-icon tone-gray" aria-hidden="true"><use href="#icon-code"></use></svg>C</li>
+              <li><svg class="skill-icon tone-orange" aria-hidden="true"><use href="#icon-html"></use></svg>HTML/CSS</li>
             </ul>
           </section>
           <section class="stack-column reveal">
-            <h3>Research</h3>
+            <h3>Frameworks &amp; Libraries</h3>
             <ul class="skill-list">
-              <li><svg class="skill-icon tone-red" aria-hidden="true"><use href="#icon-heartbeat"></use></svg>ECG analysis</li>
-              <li><svg class="skill-icon tone-blue" aria-hidden="true"><use href="#icon-table"></use></svg>NumPy</li>
+              <li><svg class="skill-icon tone-cyan" aria-hidden="true"><use href="#icon-react"></use></svg>React</li>
+              <li><svg class="skill-icon tone-cyan" aria-hidden="true"><use href="#icon-server"></use></svg>Electron</li>
+              <li><svg class="skill-icon tone-green" aria-hidden="true"><use href="#icon-server"></use></svg>Node.js</li>
+              <li><svg class="skill-icon tone-gray" aria-hidden="true"><use href="#icon-server"></use></svg>Express.js</li>
+              <li><svg class="skill-icon tone-teal" aria-hidden="true"><use href="#icon-server"></use></svg>FastAPI</li>
+              <li><svg class="skill-icon tone-blue" aria-hidden="true"><use href="#icon-database"></use></svg>Sequelize</li>
               <li><svg class="skill-icon tone-orange" aria-hidden="true"><use href="#icon-brain"></use></svg>TensorFlow</li>
-              <li><svg class="skill-icon tone-gray" aria-hidden="true"><use href="#icon-eye"></use></svg>FSLeyes</li>
-              <li><svg class="skill-icon tone-green" aria-hidden="true"><use href="#icon-check"></use></svg>Validation</li>
+              <li><svg class="skill-icon tone-blue" aria-hidden="true"><use href="#icon-table"></use></svg>NumPy</li>
+              <li><svg class="skill-icon tone-orange" aria-hidden="true"><use href="#icon-brain"></use></svg>PyTorch</li>
+              <li><svg class="skill-icon tone-purple" aria-hidden="true"><use href="#icon-python"></use></svg>librosa</li>
             </ul>
           </section>
           <section class="stack-column reveal">
-            <h3>Tools</h3>
+            <h3>Databases</h3>
             <ul class="skill-list">
-              <li><svg class="skill-icon tone-orange" aria-hidden="true"><use href="#icon-git"></use></svg>Git</li>
-              <li><svg class="skill-icon tone-gray" aria-hidden="true"><use href="#icon-github"></use></svg>GitHub</li>
-              <li><svg class="skill-icon tone-blue" aria-hidden="true"><use href="#icon-code"></use></svg>VS Code</li>
-              <li><svg class="skill-icon tone-gray" aria-hidden="true"><use href="#icon-terminal"></use></svg>WSL</li>
-              <li><svg class="skill-icon tone-purple" aria-hidden="true"><use href="#icon-figma"></use></svg>Figma</li>
+              <li><svg class="skill-icon tone-blue" aria-hidden="true"><use href="#icon-database"></use></svg>PostgreSQL</li>
+              <li><svg class="skill-icon tone-teal" aria-hidden="true"><use href="#icon-database"></use></svg>SQLite</li>
+              <li><svg class="skill-icon tone-yellow" aria-hidden="true"><use href="#icon-flame"></use></svg>Firestore</li>
+              <li><svg class="skill-icon tone-orange" aria-hidden="true"><use href="#icon-database"></use></svg>Cloudflare D1</li>
+            </ul>
+          </section>
+          <section class="stack-column reveal">
+            <h3>Tools &amp; Testing</h3>
+            <ul class="skill-list">
+              <li><svg class="skill-icon tone-orange" aria-hidden="true"><use href="#icon-git"></use></svg>Git/GitHub</li>
+              <li><svg class="skill-icon tone-blue" aria-hidden="true"><use href="#icon-server"></use></svg>Docker</li>
+              <li><svg class="skill-icon tone-purple" aria-hidden="true"><use href="#icon-grid"></use></svg>Terraform</li>
+              <li><svg class="skill-icon tone-orange" aria-hidden="true"><use href="#icon-server"></use></svg>Cloudflare Pages</li>
+              <li><svg class="skill-icon tone-gray" aria-hidden="true"><use href="#icon-github"></use></svg>Git</li>
+              <li><svg class="skill-icon tone-gray" aria-hidden="true"><use href="#icon-terminal"></use></svg>Linux/WSL</li>
+              <li><svg class="skill-icon tone-green" aria-hidden="true"><use href="#icon-check"></use></svg>Vitest</li>
+              <li><svg class="skill-icon tone-blue" aria-hidden="true"><use href="#icon-check"></use></svg>pytest</li>
+              <li><svg class="skill-icon tone-red" aria-hidden="true"><use href="#icon-check"></use></svg>JUnit</li>
             </ul>
           </section>
         </div>
@@ -235,6 +245,35 @@
             <div class="card-top">
               <span class="card-index">01</span>
               <div class="project-links">
+                <a href="https://capyecg.onrender.com/">Live site</a>
+                <a href="https://github.com/kennyklfok/CapyECG">GitHub</a>
+              </div>
+            </div>
+            <h3>CapyECG</h3>
+            <p class="card-problem">
+              ECG rhythm trainer with a local simulator that generates synthetic
+              12-lead waveforms. Includes 150 practice cases across 30 rhythm
+              and conduction patterns, practice that revisits missed material,
+              and a searchable 82-topic study guide with schematic illustrations.
+            </p>
+            <ul class="tags" aria-label="Technologies">
+              <li>React</li>
+              <li>Python</li>
+              <li>FastAPI</li>
+              <li>SQLite</li>
+            </ul>
+            <figure class="project-media">
+              <a class="project-preview" href="assets/images/projects/capyecg.png" target="_blank" rel="noopener" aria-label="Expand CapyECG screenshot">
+                <img src="assets/images/projects/capyecg.png" alt="CapyECG practice screen showing synthetic twelve-lead ECG waveforms" width="1087" height="880" loading="lazy" decoding="async" />
+              </a>
+              <figcaption>Live app · ECG rhythm practice <span aria-hidden="true">↗</span></figcaption>
+            </figure>
+          </article>
+          <article class="project-card reveal">
+            <div class="card-top">
+              <span class="card-index">02</span>
+              <div class="project-links">
+                <a href="assets/demos/code-explainer/">Try sample demo</a>
                 <a href="https://github.com/kennyklfok/hackthebreak2026"
                   >GitHub</a
                 >
@@ -242,38 +281,26 @@
             </div>
             <h3>code expl.AI.ner</h3>
             <p class="card-problem">
-              VS Code extension and fullstack AI developer tool that explains
-              selected code through a custom webview and Node/Express backend,
-              with request validation, timeout handling, and rate limiting.
+              VS Code extension that explains selected code and entire files
+              in a custom webview. An Express/Groq backend supports configurable
+              explanation length and source line references, with input validation,
+              request timeouts, and per-IP rate limiting.
             </p>
             <ul class="tags" aria-label="Technologies">
+              <li>JavaScript</li>
+              <li>VS Code API</li>
               <li>Node.js</li>
-              <li>Express</li>
+              <li>Express.js</li>
               <li>Groq API</li>
             </ul>
+            <figure class="project-media">
+              <a class="project-preview" href="assets/images/projects/code-explainer.png" target="_blank" rel="noopener" aria-label="Expand code expl.AI.ner screenshot">
+                <img src="assets/images/projects/code-explainer.png" alt="Code explainer webview displaying a JavaScript function and line selection controls" width="1265" height="712" loading="lazy" decoding="async" />
+              </a>
+              <figcaption>Extension webview · sample JavaScript <span aria-hidden="true">↗</span></figcaption>
+            </figure>
           </article>
-          <article class="project-card reveal">
-            <div class="card-top">
-              <span class="card-index">02</span>
-              <div class="project-links">
-                <a href="https://capyecg.onrender.com/">Live site</a>
-                <a href="https://github.com/kennyklfok/CapyECG">GitHub</a>
-              </div>
-            </div>
-            <h3>CapyECG</h3>
-            <p class="card-problem">
-              Educational ECG rhythm trainer for students and clinicians, with
-              React practice workflows, FastAPI/SQLite case storage, generated
-              rhythm strips, multiple-choice feedback, and short teaching
-              notes.
-            </p>
-            <ul class="tags" aria-label="Technologies">
-              <li>React</li>
-              <li>FastAPI</li>
-              <li>SQLite</li>
-            </ul>
-          </article>
-          <article class="project-card reveal">
+          <article class="project-card reveal" id="project-hospital">
             <div class="card-top">
               <span class="card-index">03</span>
               <div class="project-links">
@@ -294,11 +321,18 @@
               <li>CSS</li>
               <li>Firebase</li>
             </ul>
+            <figure class="project-media">
+              <a class="project-preview" href="assets/images/projects/hospital.png" target="_blank" rel="noopener" aria-label="Expand Burnaby Hospital Diagnostic Cardiology Website screenshot">
+                <img src="assets/images/projects/hospital.png" alt="Burnaby Hospital Diagnostic Cardiology website showing service navigation in its desktop layout" width="1102" height="892" loading="lazy" decoding="async" />
+              </a>
+              <figcaption>Live site · desktop view <span aria-hidden="true">↗</span></figcaption>
+            </figure>
           </article>
           <article class="project-card reveal">
             <div class="card-top">
               <span class="card-index">04</span>
               <div class="project-links">
+                <a href="https://bby-27.web.app/">Live site</a>
                 <a href="https://github.com/kennyklfok/SureSpot">GitHub</a>
               </div>
             </div>
@@ -313,6 +347,37 @@
               <li>Firestore</li>
               <li>MapTiler</li>
             </ul>
+            <figure class="project-media">
+              <a class="project-preview" href="assets/images/projects/surespot.png" target="_blank" rel="noopener" aria-label="Expand SureSpot screenshot">
+                <img src="assets/images/projects/surespot.png" alt="SureSpot parking map centered on BCIT with parking status legend and navigation controls" width="1102" height="892" loading="lazy" decoding="async" />
+              </a>
+              <figcaption>Live app · BCIT parking map <span aria-hidden="true">↗</span></figcaption>
+            </figure>
+          </article>
+          <article class="project-card reveal" id="project-holter">
+            <div class="card-top">
+              <span class="card-index">05</span>
+              <div class="project-links">
+                <a href="https://holter-box-check.pages.dev/">Live site</a>
+                <a href="https://github.com/kennyklfok/holter-box-check">GitHub</a>
+              </div>
+            </div>
+            <h3>Holter Box Check</h3>
+            <p class="card-problem">
+              Staff check-in tool for a hospital Holter drop-off box. Records timestamped checks and recent history, with expiring sessions, rate-limited sign-in, and duplicate-safe submissions backed by Cloudflare D1.
+            </p>
+            <ul class="tags" aria-label="Technologies">
+              <li>TypeScript</li>
+              <li>Cloudflare Pages</li>
+              <li>Pages Functions</li>
+              <li>D1</li>
+            </ul>
+            <figure class="project-media">
+              <a class="project-preview" href="assets/images/projects/holter.png" target="_blank" rel="noopener" aria-label="Expand Holter Box Check screenshot">
+                <img src="assets/images/projects/holter.png" alt="Holter Box Check dashboard with a sample staff check and check-in button" width="1280" height="720" loading="lazy" decoding="async" />
+              </a>
+              <figcaption>Check-in dashboard · sample data <span aria-hidden="true">↗</span></figcaption>
+            </figure>
           </article>
         </div>
       </section>
@@ -336,20 +401,12 @@
               <h5>Neural Cloud Solutions</h5>
 
               <ul class="detail-list">
-                <li>
-                  Built and maintained Python scripts for ECG annotation
-                  processing, dataset preparation, and validation automation.
-                </li>
-                <li>
-                  Tested arrhythmia classification against labelled ECG
-                  datasets, documenting errors involving PVCs, PACs, AFib, AV
-                  block, and junctional rhythms.
-                </li>
-                <li>
-                  Collaborated with clinical and technical leadership to
-                  prioritize validation objectives and improve testing
-                  workflows.
-                </li>
+                <li>Developed a browser-based ECG labeling platform with <strong>React</strong>, <strong>Express</strong>, <strong>PostgreSQL</strong>, and <strong>Sequelize</strong>, supporting five user roles, consensus review, and versioned corrections that preserve finalized annotations.</li>
+                <li>Prevented duplicate task assignments using <strong>PostgreSQL</strong> transactions and locks.</li>
+                <li>Built reusable ECG components in <strong>TypeScript</strong> and <strong>React</strong> for waveform and scanned-image annotation, including calibration, undo/redo, and tests for editing interactions.</li>
+                <li>Added multi-channel viewing, calipers, and cursor-centered zoom to the <strong>Electron</strong>/<strong>React</strong> ECG labeling tool.</li>
+                <li>Converted scanned ECGs into calibrated waveforms using <strong>Python</strong> and <strong>NumPy</strong>, with <strong>EDF+</strong> and <strong>HDF5</strong> exports; used overlay checks and file read-back validation to catch trace artifacts and zero padding.</li>
+                <li>Set up reproducible local <strong>PostgreSQL</strong> and <strong>MinIO</strong> services with <strong>Docker</strong> and <strong>Terraform</strong>.</li>
               </ul>
             </div>
           </li>
@@ -464,6 +521,15 @@
       </section>
     </main>
 
+    <dialog class="image-lightbox" id="project-image-dialog" aria-labelledby="project-image-title">
+      <div class="image-lightbox-header">
+        <h2 id="project-image-title">Project screenshot</h2>
+        <button class="image-lightbox-close" type="button" aria-label="Close expanded image" autofocus>Close ×</button>
+      </div>
+      <img class="image-lightbox-image" alt="" />
+      <a class="image-lightbox-original" target="_blank" rel="noopener">Open original image ↗</a>
+    </dialog>
+
     <footer class="site-footer">
       <p>
         Made by Kenny Fok
@@ -475,6 +541,6 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js" defer></script>
-    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/main.js?v=2" defer></script>
   </body>
 </html>

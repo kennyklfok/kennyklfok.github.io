@@ -315,4 +315,39 @@
       runEcg();
     }
   });
+
+  /* ---------------- Expanded project screenshots ---------------- */
+  const imageDialog = document.getElementById("project-image-dialog");
+  if (imageDialog && typeof imageDialog.showModal === "function") {
+    const largeImage = imageDialog.querySelector(".image-lightbox-image");
+    const imageTitle = imageDialog.querySelector("#project-image-title");
+    const originalLink = imageDialog.querySelector(".image-lightbox-original");
+    let imageTrigger = null;
+
+    document.querySelectorAll(".project-preview").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        const thumbnail = link.querySelector("img");
+        if (!thumbnail) return;
+        event.preventDefault();
+        imageTrigger = link;
+        largeImage.src = link.href;
+        largeImage.alt = thumbnail.alt;
+        imageTitle.textContent = link.closest(".project-card").querySelector("h3").textContent;
+        originalLink.href = link.href;
+        document.documentElement.classList.add("image-lightbox-open");
+        imageDialog.showModal();
+      });
+    });
+    imageDialog.querySelector(".image-lightbox-close").addEventListener("click", () => imageDialog.close());
+    imageDialog.addEventListener("click", (event) => {
+      if (event.target === imageDialog) imageDialog.close();
+    });
+    imageDialog.addEventListener("close", () => {
+      document.documentElement.classList.remove("image-lightbox-open");
+      largeImage.removeAttribute("src");
+      if (imageTrigger) imageTrigger.focus({ preventScroll: true });
+    });
+  }
+
 })();
