@@ -1,6 +1,6 @@
 # Kenny Fok Portfolio
 
-Minimal personal portfolio for Kenny Fok, a fullstack developer working across health tech, clinical software, and research tooling.
+Personal portfolio for Kenny Fok, a fullstack developer working across health tech, clinical software, and research tooling. Square grid framing, a continuous single-lead sinus-rhythm animation, and a horizontal project gallery use the existing charcoal, mint, and blue palette.
 
 Live site: [kennyklfok.github.io](https://kennyklfok.github.io)
 
@@ -67,6 +67,14 @@ http://localhost:8000
 ## Notes
 
 The site defaults to dark mode and includes a color theme toggle that stores the selected theme in `localStorage`.
+
+A 3.2-second sinus-rhythm entrance plays on the first visit in each browser, ending with an 800-millisecond crossfade into the page. A “Replay entrance” button in the footer returns to the top and replays the sequence. The visit flag (`kenny-ecg-intro-seen`) is stored locally. Reduced-motion preferences skip the entrance and disable decorative motion. If browser storage is unavailable, the site remains usable without persistence.
+
+The project gallery supports native touch/trackpad scrolling, numbered project buttons, looping previous/next buttons, and Left/Right/Home/End keys when the gallery is focused. Projects precede Stack to make the work easier to find. All descriptions, experience details, education, and publication information are retained. Navigation and content remain accessible without JavaScript; the gallery can still be scrolled horizontally.
+
+Interactions use browser APIs with no animation-library dependency. Fonts use the existing Google Fonts families with local system fallbacks.
+
+The hero's decorative terminal status repeats a six-second cycle: two seconds of “checking website...” and four seconds of “website healthy,” with crossfades, animated dots, a blinking cursor, and a status dot synchronized to the ECG's one-second heartbeat. The ECG scrolls uninterrupted. This is a visual motif, not a network or backend health check. Reduced-motion mode keeps a static healthy label and waveform without cycling announcements to screen readers.
 
 ## Project previews
 

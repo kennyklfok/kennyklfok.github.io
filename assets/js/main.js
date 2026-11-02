@@ -1,50 +1,150 @@
-/* Kenny Fok — site interactions
-   Dark-mode-first theme toggle, hero entrance, entrance reveals,
-   scroll-drawn timeline rail, active nav highlight, and a small
-   "run ecg" easter egg. Respects prefers-reduced-motion and
-   degrades gracefully without JS or anime.js. */
+/* Native interactions, a first-visit ECG, and a continuous single-lead ECG. */
 
 (() => {
   "use strict";
 
   const docEl = document.documentElement;
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const hasAnime = typeof anime === "function";
-  const motion = !reduced && hasAnime;
+  const motion = !reduced;
+  const readStored = (key) => {
+    try { return localStorage.getItem(key); } catch (_) { return null; }
+  };
+  const store = (key, value) => {
+    try { localStorage.setItem(key, value); } catch (_) { /* Optional persistence. */ }
+  };
 
   /* ---------------- Theme toggle (dark by default) ---------------- */
   const toggle = document.querySelector(".theme-toggle");
   const applyTheme = (theme) => {
     docEl.dataset.theme = theme;
     toggle.textContent = theme === "dark" ? "Dark" : "Light";
+    toggle.setAttribute("aria-label", `Switch to ${theme === "dark" ? "light" : "dark"} mode`);
+    document.querySelector('meta[name="theme-color"]').content = theme === "dark" ? "#080a0c" : "#f5f6f4";
   };
 
-  applyTheme(localStorage.getItem("theme") || "dark");
+  applyTheme(readStored("theme") === "light" ? "light" : "dark");
 
   toggle.addEventListener("click", () => {
     const next = docEl.dataset.theme === "dark" ? "light" : "dark";
-    localStorage.setItem("theme", next);
+    store("theme", next);
     applyTheme(next);
   });
 
-  if (motion) docEl.classList.add("motion");
+  if (motion && "IntersectionObserver" in window) docEl.classList.add("motion");
+
+  const introPlaying = docEl.classList.contains("intro-pending");
+  const introOverlay = document.querySelector(".site-intro");
+  let introTimer;
+  const finishIntro = () => {
+    clearTimeout(introTimer);
+    docEl.classList.remove("intro-pending");
+  };
+  // Finish on the actual fade endpoint, rather than cutting the animation short.
+  introOverlay.addEventListener("animationend", (event) => {
+    if (event.target === introOverlay && event.animationName === "intro-exit") finishIntro();
+  });
+  if (introPlaying) {
+    store("kenny-ecg-intro-seen", "1");
+    introTimer = setTimeout(finishIntro, 3600); // Fallback if animation events are unavailable.
+  }
+  document.querySelector(".replay-intro").addEventListener("click", () => {
+    if (reduced) return;
+    clearTimeout(introTimer);
+    docEl.classList.remove("intro-pending");
+    introOverlay.getBoundingClientRect();
+    docEl.classList.add("intro-pending");
+    window.scrollTo({ top: 0, behavior: "instant" });
+    introTimer = setTimeout(finishIntro, 3600);
+  });
 
   /* ---------------- Hero entrance ---------------- */
-  if (motion) {
+  if (motion && !introPlaying) {
     const heroEls = document.querySelectorAll("[data-hero]");
-    heroEls.forEach((el) => {
-      el.style.opacity = "0";
-    });
-
-    anime({
-      targets: heroEls,
-      opacity: [0, 1],
-      translateY: [24, 0],
-      duration: 850,
-      delay: anime.stagger(130, { start: 100 }),
-      easing: "easeOutCubic",
+    heroEls.forEach((el, index) => {
+      el.animate?.([{ opacity: 0, transform: "translateY(12px)" }, { opacity: 1, transform: "none" }], {
+        duration: 650,
+        delay: 50 + index * 80,
+        easing: "cubic-bezier(.2,.65,.3,1)",
+        fill: "backwards",
+      });
     });
   }
+
+  /* A finite native track with circular button navigation. No duplicate links. */
+  const track = document.querySelector(".project-grid");
+  const cards = Array.from(track.querySelectorAll(".project-card"));
+  const pagination = document.querySelector(".project-pagination");
+  const counter = document.querySelector(".project-counter");
+  let current = 0;
+  const projectName = (card) => card.querySelector("h3").textContent.trim();
+  const markCurrent = (index) => {
+    current = index;
+    counter.textContent = `${String(index + 1).padStart(2, "0")} / ${String(cards.length).padStart(2, "0")}`;
+    pagination.querySelectorAll("button").forEach((button, i) => {
+      if (i === index) button.setAttribute("aria-current", "true");
+      else button.removeAttribute("aria-current");
+    });
+  };
+  const projectScrollLeft = (index) => {
+    const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+    if (index === cards.length - 1) return maxScroll;
+    const padding = parseFloat(getComputedStyle(track).paddingLeft);
+    const left = cards[index].getBoundingClientRect().left - track.getBoundingClientRect().left + track.scrollLeft - padding;
+    return Math.max(0, Math.min(left, maxScroll));
+  };
+  const goToProject = (index) => {
+    const next = (index + cards.length) % cards.length;
+    track.scrollTo({ left: projectScrollLeft(next), behavior: reduced ? "instant" : "smooth" });
+    markCurrent(next);
+  };
+  cards.forEach((card, index) => {
+    card.classList.remove("reveal");
+    card.setAttribute("role", "group");
+    card.setAttribute("aria-roledescription", "slide");
+    card.setAttribute("aria-label", `${index + 1} of ${cards.length}: ${projectName(card)}`);
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = String(index + 1).padStart(2, "0");
+    button.setAttribute("aria-label", `Show ${projectName(card)}`);
+    button.setAttribute("aria-controls", "project-track");
+    button.addEventListener("click", () => goToProject(index));
+    pagination.append(button);
+  });
+  document.querySelector(".project-prev").addEventListener("click", () => goToProject(current - 1));
+  document.querySelector(".project-next").addEventListener("click", () => goToProject(current + 1));
+  track.addEventListener("keydown", (event) => {
+    if (event.target !== track) return;
+    if (["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
+      event.preventDefault();
+      goToProject(event.key === "Home" ? 0 : event.key === "End" ? cards.length - 1 : current + (event.key === "ArrowRight" ? 1 : -1));
+    }
+  });
+  let scrollFrame = false;
+  track.addEventListener("scroll", () => {
+    if (scrollFrame) return;
+    scrollFrame = true;
+    requestAnimationFrame(() => {
+      const origin = track.getBoundingClientRect().left + parseFloat(getComputedStyle(track).paddingLeft);
+      let closest = 0;
+      cards.forEach((card, index) => {
+        if (Math.abs(card.getBoundingClientRect().left - origin) < Math.abs(cards[closest].getBoundingClientRect().left - origin)) closest = index;
+      });
+      // At the end, the last card sits against the right gutter, not the left.
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      if (maxScroll > 0 && track.scrollLeft >= maxScroll - 2) closest = cards.length - 1;
+      markCurrent(closest);
+      scrollFrame = false;
+    });
+  }, { passive: true });
+  track.addEventListener("focusin", (event) => {
+    const card = event.target.closest(".project-card");
+    if (card) goToProject(cards.indexOf(card));
+  });
+  window.addEventListener("resize", () => {
+    track.scrollLeft = projectScrollLeft(current);
+  });
+  markCurrent(0);
+  docEl.classList.add("gallery-ready");
 
   /* ---------------- Entrance reveals ---------------- */
   const reveals = document.querySelectorAll(".reveal");
@@ -286,21 +386,10 @@
     path.style.strokeDasharray = len;
     path.style.strokeDashoffset = len;
 
-    if (hasAnime) {
-      anime({
-        targets: path,
-        strokeDashoffset: [len, 0],
-        duration: 2600,
-        easing: "easeInOutSine",
-        complete: () => setTimeout(cleanup, 1200),
-      });
-    } else {
-      // CSS-transition fallback.
-      path.getBoundingClientRect(); // force layout
-      path.style.transition = "stroke-dashoffset 2.6s ease-in-out";
-      path.style.strokeDashoffset = "0";
-      setTimeout(cleanup, 3800);
-    }
+    path.getBoundingClientRect(); // Start the native drawing transition.
+    path.style.transition = "stroke-dashoffset 2.6s ease-in-out";
+    path.style.strokeDashoffset = "0";
+    setTimeout(cleanup, 3800);
   };
 
   const eggBtn = document.querySelector(".egg-btn");
@@ -308,6 +397,7 @@
 
   let keyBuffer = "";
   window.addEventListener("keydown", (e) => {
+    if (e.target.closest('input, textarea, select, [contenteditable="true"]') || e.ctrlKey || e.metaKey || e.altKey) return;
     if (e.key.length !== 1) return;
     keyBuffer = (keyBuffer + e.key.toLowerCase()).slice(-10);
     if (keyBuffer.endsWith("run ecg")) {
