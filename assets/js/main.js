@@ -6,6 +6,33 @@
   const docEl = document.documentElement;
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const motion = !reduced;
+
+  // Fit twelve clipped lead cells and a rhythm strip into the existing canvas.
+  const ecg = document.querySelector(".hero-ecg");
+  if (ecg) {
+    const make = (tag, attributes) => {
+      const node = document.createElementNS("http://www.w3.org/2000/svg", tag);
+      Object.entries(attributes).forEach(([key, value]) => node.setAttribute(key, value));
+      return node;
+    };
+    ecg.querySelector(":scope > .ecg-strip")?.remove();
+    ecg.setAttribute("aria-label", "Illustrative animated twelve-lead ECG with a Lead II rhythm strip");
+    const leads = [["I", .48], ["aVR", -.55], ["V1", -.4], ["V4", 1.05], ["II", .85], ["aVL", .32], ["V2", -.2], ["V5", .9], ["III", .37], ["aVF", .62], ["V3", .65], ["V6", .7]];
+    const draw = (name, gain, x, y, width) => {
+      const cell = make("svg", { x, y, width, height: 106, viewBox: `0 0 ${width} 106`, overflow: "hidden" });
+      const trace = make("g", { transform: `translate(0 ${62 - 300 * gain * .34}) scale(.5 ${gain * .34})` });
+      const strip = make("g", { class: "ecg-strip" });
+      for (let i = 0; i < 3; i++) strip.append(make("use", { href: "#sinus-beats", x: i * 960 }));
+      trace.append(strip);
+      cell.append(trace);
+      const label = make("text", { x: 8, y: 16, fill: "currentColor", "font-size": 16, "font-family": "monospace" });
+      label.textContent = name;
+      cell.append(label);
+      ecg.append(cell);
+    };
+    leads.forEach(([name, gain], i) => draw(name, gain, (i % 4) * 232 + 16, Math.floor(i / 4) * 112 + 92, 224));
+    draw("II", .85, 16, 436, 928);
+  }
   const readStored = (key) => {
     try { return localStorage.getItem(key); } catch (_) { return null; }
   };
