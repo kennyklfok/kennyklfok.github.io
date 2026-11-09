@@ -27,7 +27,7 @@
         document.documentElement.dataset.theme = "dark";
       }
     </script>
-    <link rel="stylesheet" href="assets/css/main.css?v=15" />
+    <link rel="stylesheet" href="assets/css/main.css?v=17" />
   </head>
   <body id="top">
     <a class="skip-link" href="#main">Skip to content</a>
@@ -228,8 +228,8 @@
               <li>SQLite</li>
             </ul>
             <figure class="project-media">
-              <a class="project-preview" href="assets/images/projects/capyecg.png" target="_blank" rel="noopener" aria-label="Expand CapyECG screenshot">
-                <img src="assets/images/projects/capyecg.png" alt="CapyECG practice screen showing synthetic twelve-lead ECG waveforms" width="1087" height="880" loading="eager" decoding="async" />
+              <a class="project-preview" href="assets/images/projects/capyecg-answers.png" target="_blank" rel="noopener" aria-label="Expand CapyECG screenshot">
+                <img src="assets/images/projects/capyecg-answers.png" alt="CapyECG practice screen with a twelve-lead ECG, rhythm strip, and multiple-choice answer options" width="1022" height="1031" loading="eager" decoding="async" />
               </a>
               <figcaption>Live app · ECG rhythm practice <span aria-hidden="true">↗</span></figcaption>
             </figure>
@@ -379,12 +379,10 @@
               <li><svg class="skill-icon tone-cyan" aria-hidden="true"><use href="#icon-server"></use></svg>Electron</li>
               <li><svg class="skill-icon tone-green" aria-hidden="true"><use href="#icon-server"></use></svg>Node.js</li>
               <li><svg class="skill-icon tone-gray" aria-hidden="true"><use href="#icon-server"></use></svg>Express.js</li>
-              <li><svg class="skill-icon tone-teal" aria-hidden="true"><use href="#icon-server"></use></svg>FastAPI</li>
               <li><svg class="skill-icon tone-blue" aria-hidden="true"><use href="#icon-database"></use></svg>Sequelize</li>
               <li><svg class="skill-icon tone-orange" aria-hidden="true"><use href="#icon-brain"></use></svg>TensorFlow</li>
               <li><svg class="skill-icon tone-blue" aria-hidden="true"><use href="#icon-table"></use></svg>NumPy</li>
               <li><svg class="skill-icon tone-orange" aria-hidden="true"><use href="#icon-brain"></use></svg>PyTorch</li>
-              <li><svg class="skill-icon tone-purple" aria-hidden="true"><use href="#icon-python"></use></svg>librosa</li>
             </ul>
           </section>
           <section class="stack-column reveal">
@@ -432,12 +430,11 @@
               <h5>Neural Cloud Solutions</h5>
 
               <ul class="detail-list">
-                <li>Developed a browser-based ECG labeling platform with <strong>React</strong>, <strong>Express</strong>, <strong>PostgreSQL</strong>, and <strong>Sequelize</strong>, supporting five user roles, consensus review, and versioned corrections that preserve finalized annotations.</li>
-                <li>Prevented duplicate task assignments using <strong>PostgreSQL</strong> transactions and locks.</li>
-                <li>Built reusable ECG components in <strong>TypeScript</strong> and <strong>React</strong> for waveform and scanned-image annotation, including calibration, undo/redo, and tests for editing interactions.</li>
-                <li>Added multi-channel viewing, calipers, and cursor-centered zoom to the <strong>Electron</strong>/<strong>React</strong> ECG labeling tool.</li>
-                <li>Converted scanned ECGs into calibrated waveforms using <strong>Python</strong> and <strong>NumPy</strong>, with <strong>EDF+</strong> and <strong>HDF5</strong> exports; used overlay checks and file read-back validation to catch trace artifacts and zero padding.</li>
-                <li>Set up reproducible local <strong>PostgreSQL</strong> and <strong>MinIO</strong> services with <strong>Docker</strong> and <strong>Terraform</strong>.</li>
+                <li>Developed a browser-based ECG labeling platform using <strong>React</strong>, <strong>TypeScript</strong>, <strong>Express</strong>, <strong>PostgreSQL</strong>, and <strong>Sequelize</strong>, supporting role-based access, consensus review, and versioned corrections.</li>
+                <li>Implemented client upload links and direct-to-<strong>Amazon S3</strong> transfers using scoped, expiring presigned policies, with <strong>MinIO</strong> compatibility for local development.</li>
+                <li>Authored <strong>Terraform</strong> infrastructure for <strong>AWS EC2</strong>, <strong>RDS</strong>, and private object storage, including encrypted resources, IAM permissions, secrets management, and monitoring.</li>
+                <li>Built <strong>Docker</strong> deployment and rollback scripts using <strong>ECR</strong> and <strong>Systems Manager</strong>, with HTTPS routing through Caddy.</li>
+                <li>Enhanced the <strong>Electron</strong> desktop tool with multi-channel viewing, calipers, and cursor-centered zoom; converted scanned ECGs into calibrated waveforms using <strong>Python</strong> and <strong>NumPy</strong>, with validated <strong>EDF+</strong> and <strong>HDF5</strong> exports.</li>
               </ul>
             </div>
           </li>
@@ -448,16 +445,16 @@
               <h5>Neural Cloud Solutions</h5>
               <ul class="detail-list">
                 <li>
-                  Produced bug reports and technical recommendations across
+                  Produced <strong>bug reports</strong> and technical recommendations across
                   frontend, backend, and workflow systems.
                 </li>
                 <li>
-                  Labeled and validated 500+ cardiac waveform segments for
+                  Labeled and validated <strong>500+ cardiac waveform segments</strong> for
                   supervised machine learning and annotation standardization.
                 </li>
                 <li>
                   Worked with product, engineering, and clinical teams to align
-                  software behavior with ECG validation goals.
+                  software behavior with <strong>ECG validation</strong> goals.
                 </li>
               </ul>
             </div>
@@ -469,15 +466,15 @@
               <h5>Fraser Health</h5>
               <ul class="detail-list">
                 <li>
-                  Conducted ECGs, Holter monitoring, and stress testing using
+                  Conducted <strong>ECGs, Holter monitoring, and stress testing</strong> using
                   cardiac diagnostic equipment.
                 </li>
                 <li>
-                  Performed rhythm scanning and analysis with CardioDay and
+                  Performed <strong>rhythm scanning and analysis</strong> with CardioDay and
                   Zymed.
                 </li>
                 <li>
-                  Used Meditech and Muse for patient registration, clinical
+                  Used <strong>Meditech and Muse</strong> for patient registration, clinical
                   documentation, and order management.
                 </li>
               </ul>
@@ -558,7 +555,6 @@
         <button class="image-lightbox-close" type="button" aria-label="Close expanded image" autofocus>Close ×</button>
       </div>
       <img class="image-lightbox-image" alt="" />
-      <a class="image-lightbox-original" target="_blank" rel="noopener">Open original image ↗</a>
     </dialog>
 
     <footer class="site-footer">
@@ -572,6 +568,6 @@
       <a href="#top">Back to top</a>
     </footer>
 
-    <script src="assets/js/main.js?v=6" defer></script>
+    <script src="assets/js/main.js?v=9" defer></script>
   </body>
 </html>

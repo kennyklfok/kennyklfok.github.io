@@ -146,6 +146,21 @@
       goToProject(event.key === "Home" ? 0 : event.key === "End" ? cards.length - 1 : current + (event.key === "ArrowRight" ? 1 : -1));
     }
   });
+  // Translate vertical wheel input locally; release page scrolling at either end.
+  track.addEventListener("pointerdown", (event) => {
+    if (event.pointerType === "touch") track.style.removeProperty("scroll-snap-type");
+  }, { passive: true });
+  track.addEventListener("wheel", (event) => {
+    if (event.ctrlKey || event.metaKey || event.shiftKey || Math.abs(event.deltaX) >= Math.abs(event.deltaY)) return;
+    const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+    const delta = event.deltaY * (event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? track.clientWidth : 1);
+    if (!maxScroll || !delta || (delta < 0 && track.scrollLeft <= 1) || (delta > 0 && track.scrollLeft >= maxScroll - 1)) return;
+    if (!event.cancelable) return;
+    event.preventDefault();
+    track.style.scrollSnapType = "none";
+    track.scrollLeft = Math.max(0, Math.min(maxScroll, track.scrollLeft + delta));
+  }, { passive: false });
+
   let scrollFrame = false;
   track.addEventListener("scroll", () => {
     if (scrollFrame) return;
@@ -438,7 +453,6 @@
   if (imageDialog && typeof imageDialog.showModal === "function") {
     const largeImage = imageDialog.querySelector(".image-lightbox-image");
     const imageTitle = imageDialog.querySelector("#project-image-title");
-    const originalLink = imageDialog.querySelector(".image-lightbox-original");
     let imageTrigger = null;
 
     document.querySelectorAll(".project-preview").forEach((link) => {
@@ -451,7 +465,6 @@
         largeImage.src = link.href;
         largeImage.alt = thumbnail.alt;
         imageTitle.textContent = link.closest(".project-card").querySelector("h3").textContent;
-        originalLink.href = link.href;
         document.documentElement.classList.add("image-lightbox-open");
         imageDialog.showModal();
       });
